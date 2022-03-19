@@ -1,8 +1,8 @@
 import HomePage from "./Pages/HomePage";
-import cartPage from "./Pages/cartPage";
+import CartPage from "./Pages/CartPage";
 
 const routes = [
-  { path: "/cart", component: cartPage },
+  { path: "/cart", component: CartPage },
   { path: "/", exact: true, component: HomePage },
 ];
 
