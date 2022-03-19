@@ -15,7 +15,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cart: updatedCart,
-        total: state.total + action.payload.price,
+        total: state.total + action.payload.offPrice,
       };
     }
     case "REMOVE_PRODUCT": {
@@ -28,11 +28,19 @@ const cartReducer = (state, action) => {
         const filteredCart = updatedCart.filter(
           (item) => item.id !== action.payload.id
         );
-        return { ...state, cart: filteredCart, total: state.total - action.payload.price };
+        return {
+          ...state,
+          cart: filteredCart,
+          total: state.total - action.payload.offPrice,
+        };
       } else {
         updatedItems.quantity--;
         updatedCart[existingProductIndex] = updatedItems;
-        return { ...state, cart: updatedCart, total: state.total - action.payload.price };
+        return {
+          ...state,
+          cart: updatedCart,
+          total: state.total - action.payload.offPrice,
+        };
       }
     }
     default:

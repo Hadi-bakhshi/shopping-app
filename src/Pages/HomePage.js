@@ -1,12 +1,19 @@
-import { useCartActions } from "../context/CartProvider";
+
+import { useCart, useCartActions } from "../context/CartProvider";
 import * as data from "../data";
+import { checkInCart } from "../utils/checkInCart";
+import toast from 'react-hot-toast';
+
+
+
 const HomePage = () => {
 
+  const {cart} = useCart();
   const dispatch = useCartActions();
   const addToCartHandler = (product) => {
-    // console.log(product);
-    dispatch({type:'ADD_TO_CART', payload:product});
-  }
+    dispatch({ type: "ADD_TO_CART", payload: product });
+    toast.success(`${product.name} added to cart`);
+  };
 
   return (
     <main className="productList--main">
@@ -20,7 +27,12 @@ const HomePage = () => {
               <div className="productDescription">
                 <p>{product.name}</p>
                 <p>$ {product.price}</p>
-                <button className="btn primary" onClick={() => addToCartHandler(product)}>Add To Cart</button>
+                <button
+                  className="btn primary"
+                  onClick={() => addToCartHandler(product)}
+                >
+                  {checkInCart(cart,product) ? "In cart": "Add to Cart"}
+                </button>
               </div>
             </section>
           );

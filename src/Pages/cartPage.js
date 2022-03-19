@@ -28,7 +28,7 @@ const CartPage = () => {
                   <img src={item.image} alt={item.name} />
                 </div>
                 <div>{item.name}</div>
-                <div>$ {item.price * item.quantity}</div>
+                <div>$ {item.offPrice * item.quantity}</div>
                 <div>
                   <button onClick={() => incHandler(item)}>Add</button>
                   <button>{item.quantity}</button>
@@ -38,13 +38,30 @@ const CartPage = () => {
             );
           })}
         </section>
-        <section className="cartSummary--container">
-          <h3>Reciept</h3>
-          <div>$ {total}</div>
-        </section>
+        <CartSummary total={total}/>
       </section>
     </main>
   );
 };
 
 export default CartPage;
+
+const CartSummary = ({total}) => {
+  return (
+    <section className="cartSummary--container">
+      <h3 style={{marginBottom:"30px"}}>Reciept</h3>
+      <div className="summary-item">
+        <p>Products Price :</p>
+        <p>$120</p>
+      </div>
+      <div className="summary-item">
+        <p>Products Discount :</p>
+        <p>$20</p>
+      </div>
+      <div className="summary-item">
+        <p>Total price :</p>
+        <p>$100</p>
+      </div>
+    </section>
+  );
+};
