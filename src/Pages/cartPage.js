@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
 import { useCart, useCartActions } from "../context/CartProvider";
 import "./cartPage.css";
 const CartPage = () => {
+  // global state using context
   const { cart, total } = useCart();
   const dispatch = useCartActions();
+
+  // when there is nothing in the cart we will show this message
   if (!cart.length)
     return (
       <main className="container">
@@ -10,6 +14,7 @@ const CartPage = () => {
       </main>
     );
 
+  // hadndlers for add and remove
   const incHandler = (cartItem) => {
     dispatch({ type: "ADD_TO_CART", payload: cartItem });
   };
@@ -19,8 +24,11 @@ const CartPage = () => {
 
   return (
     <main className="container">
+      {/* Wrapper section for both cart items and reciept  */}
       <section className="cartPageCenter--container">
+        {/* Cart products details section */}
         <section className="cartItem--container">
+          {/* map on items that added to cart */}
           {cart.map((item) => {
             return (
               <div className="cartItem" key={item.id}>
@@ -30,38 +38,68 @@ const CartPage = () => {
                 <div>{item.name}</div>
                 <div>$ {item.offPrice * item.quantity}</div>
                 <div>
-                  <button onClick={() => incHandler(item)}>Add</button>
-                  <button>{item.quantity}</button>
-                  <button onClick={() => decHandler(item)}>Remove</button>
+                  <button
+                    className="btnGroup bt1"
+                    onClick={() => incHandler(item)}
+                  >
+                    +
+                  </button>
+                  <button className="btnGroup bt2">{item.quantity}</button>
+                  <button
+                    className="btnGroup bt3"
+                    onClick={() => decHandler(item)}
+                  >
+                    -
+                  </button>
                 </div>
               </div>
             );
           })}
+          {/* end of the map */}
         </section>
-        <CartSummary total={total}/>
+        {/* end of Cart products details section */}
+
+        {/* reciept and checkout component */}
+        <CartSummary cart={cart} total={total} />
+        {/* end of reciept and checkout component */}
       </section>
+      {/* end of wrapper section for both cart items and reciept */}
     </main>
   );
 };
 
 export default CartPage;
 
-const CartSummary = ({total}) => {
+const CartSummary = ({ cart, total }) => {
+  // this function calculate the total price of the cart without discount
+  const originalTotalPrice = cart.length
+    ? cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+    : 0;
+
   return (
     <section className="cartSummary--container">
-      <h3 style={{marginBottom:"30px"}}>Reciept</h3>
+      <h3 style={{ marginBottom: "30px" }}>Reciept</h3>
+      {/* original price of products */}
       <div className="summary-item">
         <p>Products Price :</p>
-        <p>$120</p>
+        <p>$ {originalTotalPrice}</p>
       </div>
+      {/* total discount of products */}
       <div className="summary-item">
         <p>Products Discount :</p>
-        <p>$20</p>
+        <p>$ {originalTotalPrice - total}</p>
       </div>
-      <div className="summary-item">
+      {/* total price of products with discount counted */}
+      <div className="summary-item net">
         <p>Total price :</p>
-        <p>$100</p>
+        <p>$ {total}</p>
       </div>
+      {/* link to check out page if user is logged in */}
+      <Link className="linkbtn-checkout" to="/checkout">
+        <button className="btn primary" style={{ marginTop: "25px" }}>
+          Checkout
+        </button>
+      </Link>
     </section>
   );
 };

@@ -13,7 +13,7 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   flex: 1;
-  padding: 1rem ;
+  padding: 1rem;
 }
 .cartItem {
   display: flex;
@@ -38,11 +38,42 @@
   border: 1px solid #ccc;
   width: 30%;
   margin-left: 3rem;
-  padding: 1rem ;
+  padding: 1rem;
 }
-.summary-item{
+.summary-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+}
+.net {
+  border-top: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.btnGroup {
+  outline: none;
+  color: #6d28d9;
+  border: 1px solid #6d28d9;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.bt1 {
+  border-radius: 5px 0 0 5px;
+}
+.bt3 {
+  border-radius: 0 5px 5px 0;
+}
+.bt2 {
+  border-left: 0;
+  border-right: 0;
+}
+
+.linkbtn-checkout {
+  width: 100%;
+}
+.linkbtn-checkout button {
+  width: 100%;
 }

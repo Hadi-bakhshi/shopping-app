@@ -12,7 +12,7 @@ const HomePage = () => {
   const dispatch = useCartActions();
   const addToCartHandler = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-    toast.success(`${product.name} added to cart`);
+    toast.success(`${product.name} added to cart`, {duration: 2000});
   };
 
   return (
