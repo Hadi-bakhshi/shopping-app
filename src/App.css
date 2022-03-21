@@ -47,6 +47,11 @@ a{
   color: #ede9fe;
 }
 
+button:disabled{
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #636363;
+}
 /* Cart page styles */
 
 .container{
