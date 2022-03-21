@@ -2,6 +2,8 @@ import { useFormik } from "formik";
 import Input from "../../common/Input";
 import * as Yup from "yup";
 import "./signup.css";
+import { Link } from "react-router-dom";
+
 const initialValues = {
   name: "",
   email: "",
@@ -24,7 +26,12 @@ const validationSchema = Yup.object({
     .matches(/^[0-9]{11}$/, "Phone number is not valid")
     .nullable(),
 
-  password: Yup.string().required("Password is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+      "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character"
+    ),
   passwordConfirm: Yup.string()
     .required("Password confirmation is required")
     .oneOf([Yup.ref("password"), null], "password must match"),
@@ -69,6 +76,7 @@ const SignupForm = () => {
         >
           Sign up
         </button>
+        <Link to="/login"><p className="loginFrom-signup">Already have an account? Login from here</p></Link>
       </form>
     </div>
   );
