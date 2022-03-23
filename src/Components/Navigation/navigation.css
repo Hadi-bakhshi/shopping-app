@@ -2,11 +2,17 @@
   width: 100%;
   height: 4.5rem;
   background-color: #ede9fe;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 0;
 }
 .navigationHeader nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1170px;
+  width: 100%;
   height: 100%;
 }
 
