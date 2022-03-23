@@ -95,7 +95,7 @@ const CartSummary = ({ cart, total }) => {
         <p>$ {total}</p>
       </div>
       {/* link to check out page if user is logged in */}
-      <Link className="linkbtn-checkout" to="/checkout">
+      <Link className="linkbtn-checkout" to="/signup?redirect=checkout">
         <button className="btn primary" style={{ marginTop: "25px" }}>
           Checkout
         </button>
