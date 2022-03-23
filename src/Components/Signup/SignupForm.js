@@ -3,6 +3,9 @@ import Input from "../../common/Input";
 import * as Yup from "yup";
 import "./signup.css";
 import { Link } from "react-router-dom";
+import { signupUser } from "../../services/signupService";
+import { useState } from "react";
+import toast from 'react-hot-toast';
 
 const initialValues = {
   name: "",
@@ -12,14 +15,10 @@ const initialValues = {
   passwordConfirm: "",
 };
 
-const onSubmit = (values) => {
-  console.log(values);
-};
-
 const validationSchema = Yup.object({
   name: Yup.string()
     .required("Name is required")
-    .min(6, "Name must be at least 6 characters"),
+    .min(4, "Name must be at least 4 characters"),
   email: Yup.string().email("Email is not valid").required("Email is required"),
   phoneNumber: Yup.string()
     .required("Phone number is required")
@@ -38,6 +37,26 @@ const validationSchema = Yup.object({
 });
 
 const SignupForm = () => {
+  const [error, setError] = useState(null);
+
+  const onSubmit = async (values) => {
+    const userData = {
+      name: values.name,
+      email: values.email,
+      phoneNumber: values.phoneNumber,
+      password: values.password,
+    };
+
+    try {
+      const { data } = await signupUser(userData);
+      console.log(data);
+    } catch (error) {
+      if (error.response && error.response.data.message)
+        setError(error.response.data.message);
+      toast.error(error.response.data.message);
+    }
+  };
+
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit,
@@ -76,7 +95,12 @@ const SignupForm = () => {
         >
           Sign up
         </button>
-        <Link to="/login"><p className="loginFrom-signup">Already have an account? Login from here</p></Link>
+        {error && <p className="error">{error}</p>}
+        <Link to="/login">
+          <p className="loginFrom-signup">
+            Already have an account? Login from here
+          </p>
+        </Link>
       </form>
     </div>
   );
