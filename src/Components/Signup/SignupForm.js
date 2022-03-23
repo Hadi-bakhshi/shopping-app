@@ -2,11 +2,14 @@ import { useFormik } from "formik";
 import Input from "../../common/Input";
 import * as Yup from "yup";
 import "./signup.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { signupUser } from "../../services/signupService";
-import { useState } from "react";
-import toast from 'react-hot-toast';
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useAuth, useAuthActions } from "../../context/AuthProvider";
+import { useQuery } from "../../hooks/useQuery";
 
+// inital values for the form
 const initialValues = {
   name: "",
   email: "",
@@ -14,7 +17,7 @@ const initialValues = {
   password: "",
   passwordConfirm: "",
 };
-
+// Yup schema for form validation
 const validationSchema = Yup.object({
   name: Yup.string()
     .required("Name is required")
@@ -36,9 +39,22 @@ const validationSchema = Yup.object({
     .oneOf([Yup.ref("password"), null], "password must match"),
 });
 
-const SignupForm = () => {
+const SignupForm = ({ history }) => {
+  // useQuery hook to get the query params and redirect
+  const query = useQuery();
+  const redirect = query.get("redirect") || "/";
+  // useAuthActions to dispatch actions and useAuth to get the auth state
+  const setAuth = useAuthActions();
+  const userData =useAuth()
+  // error state
   const [error, setError] = useState(null);
 
+// useEffect to check if the user is already logged in
+ useEffect(()=>{
+  if(userData) history.push(redirect)
+ },[redirect,userData,history]) 
+
+  // submit handler
   const onSubmit = async (values) => {
     const userData = {
       name: values.name,
@@ -49,7 +65,9 @@ const SignupForm = () => {
 
     try {
       const { data } = await signupUser(userData);
-      console.log(data);
+      setAuth(data);
+      setError(null);
+      history.push(redirect);
     } catch (error) {
       if (error.response && error.response.data.message)
         setError(error.response.data.message);
@@ -57,6 +75,7 @@ const SignupForm = () => {
     }
   };
 
+  // useFormik hook
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit,
@@ -96,7 +115,7 @@ const SignupForm = () => {
           Sign up
         </button>
         {error && <p className="error">{error}</p>}
-        <Link to="/login">
+        <Link to={`login?redirect=${redirect}`}>
           <p className="loginFrom-signup">
             Already have an account? Login from here
           </p>
@@ -105,5 +124,5 @@ const SignupForm = () => {
     </div>
   );
 };
-
-export default SignupForm;
+// withRouter to get the history object
+export default withRouter(SignupForm);
