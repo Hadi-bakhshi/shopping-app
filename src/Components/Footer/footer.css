@@ -1,0 +1,14 @@
+footer{
+    background-color: #ccc;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.footer-section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1170px;
+    height: 100%;
+}
