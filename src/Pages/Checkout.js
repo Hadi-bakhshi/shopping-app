@@ -1,8 +1,9 @@
+import CheckoutComponent from "../Components/Checkout/CheckoutComponent"
 
 
 const Checkout = () => {
   return (
-    <div>Welcome to checkout page </div>
+   <CheckoutComponent/>
   )
 }
 
