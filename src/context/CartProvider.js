@@ -1,4 +1,4 @@
-import { useContext, useReducer, createContext } from "react";
+import { useContext, useReducer, createContext, useEffect } from "react";
 import cartReducer from "./cartReducer";
 
 const CartContext = createContext();
@@ -11,6 +11,12 @@ const initialState = {
 
 const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialState);
+
+  // if there are items in local storage, add them to the cart
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("cart")) || [];
+    data.map((i) => dispatch({ type: "ADD_TO_CART", payload: i }));
+  }, []);
 
   return (
     <CartContext.Provider value={cart}>

@@ -26,6 +26,13 @@ const Navigation = () => {
               Home
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/products"
+              activeStyle={activeLinks}
+              activeClassName="active">
+              Products
+            </NavLink>
+          </li>
         </ul>
 
         <ul className="navigationLinks">

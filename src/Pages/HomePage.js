@@ -1,44 +1,24 @@
-
-import { useCart, useCartActions } from "../context/CartProvider";
-import * as data from "../data";
-import { checkInCart } from "../utils/checkInCart";
-import toast from 'react-hot-toast';
-
-
-
+import './homePage.css'
+import img from '../assets/wio-8-mens-road-running-shoes-vKc7d1.jfif'
 const HomePage = () => {
 
-  const {cart} = useCart();
-  const dispatch = useCartActions();
-  const addToCartHandler = (product) => {
-    dispatch({ type: "ADD_TO_CART", payload: product });
-    toast.success(`${product.name} added to cart`, {duration: 2000});
-  };
-
+ 
   return (
-    <main className="productList--main">
-      <section className="productsList--section">
-        {data.products.map((product) => {
-          return (
-            <section className="product--section" key={product.id}>
-              <div className="productImage--container">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="productDescription">
-                <p>{product.name}</p>
-                <p>$ {product.price}</p>
-                <button
-                  className="btn primary"
-                  onClick={() => addToCartHandler(product)}
-                >
-                  {checkInCart(cart,product) ? "In cart": "Add to Cart"}
-                </button>
-              </div>
-            </section>
-          );
-        })}
-      </section>
-    </main>
+   <section className="home-container">
+     <section className="wrappHome">
+     <div className='left'>
+      <h3>
+        Shopp online in ease
+      </h3>
+      <p>If you want to buy your favorite sneakers, you'd better hurry</p>
+     </div>
+     <div className='right'>
+     <div className='homeImage'>
+        <img className='sneaker-image' src={img} alt="hi"/>
+       </div>
+     </div>
+     </section>
+   </section>
   );
 };
 

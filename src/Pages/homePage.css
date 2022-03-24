@@ -1,0 +1,39 @@
+.home-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+
+}
+
+.wrappHome{
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1170px;
+    width: 90vw;
+    text-align: center;
+}
+
+.left, .right{
+    width: 50%;
+
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.homeImage{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.sneaker-image{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart, useCartActions } from "../context/CartProvider";
 import "./cartPage.css";
+
 const CartPage = () => {
   // global state using context
   const { cart, total } = useCart();
@@ -13,13 +14,28 @@ const CartPage = () => {
         <h2>Your cart is empty</h2>
       </main>
     );
-
   // hadndlers for add and remove
   const incHandler = (cartItem) => {
     dispatch({ type: "ADD_TO_CART", payload: cartItem });
+    addToLocalStorage(cartItem);
   };
   const decHandler = (cartItem) => {
     dispatch({ type: "REMOVE_PRODUCT", payload: cartItem });
+    removeItem(cartItem);
+  };
+
+  // remove item from local storage when user remove it from cart
+  const removeItem = (cartItem) => {
+    const data = JSON.parse(localStorage.getItem("cart"));
+    const index = [...data].findIndex((item) => item.id === cartItem.id);
+    data.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(data));
+  };
+  // add to local storage when user add it to cart
+  const addToLocalStorage = (cartItem) => {
+    const data = JSON.parse(localStorage.getItem("cart")) || [];
+    const newData = [...data, cartItem];
+    localStorage.setItem("cart", JSON.stringify(newData));
   };
 
   return (
