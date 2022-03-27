@@ -4,6 +4,8 @@ import img from "../assets/wio-8-mens-road-running-shoes-vKc7d1.jfif";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import PhotoSlider from "../Components/Slider/PhotoSlider";
+import HomeCards from "../Components/HomeCards/HomeCards";
 
 const HomePage = () => {
   useEffect(() => {
@@ -22,7 +24,9 @@ const HomePage = () => {
             browse through hundreds of collections
           </p>
           <Link to="/products">
-            <button data-aos="fade-up-left" className="btn-home">Check Out Produccts</button>
+            <button data-aos="fade-up-left" className="btn-home">
+              Check Out Produccts
+            </button>
           </Link>
         </div>
         <div className="right">
@@ -35,6 +39,13 @@ const HomePage = () => {
             />
           </div>
         </div>
+      </section>
+      <section data-aos="zoom-in-up" className="slider-container">
+        <h2>New Collections</h2>
+        <PhotoSlider />
+      </section>
+      <section className="cards-section">
+        <HomeCards/>
       </section>
     </section>
   );
