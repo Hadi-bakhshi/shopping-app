@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import PhotoSlider from "../Components/Slider/PhotoSlider";
 import HomeCards from "../Components/HomeCards/HomeCards";
+import FooterComponent from "../Components/Footer/FooterComponent";
 
 const HomePage = () => {
   useEffect(() => {
@@ -44,9 +45,10 @@ const HomePage = () => {
         <h2>New Collections</h2>
         <PhotoSlider />
       </section>
-      <section className="cards-section">
+      <section data-aos="zoom-in-down" className="cards-section">
         <HomeCards/>
       </section>
+      <FooterComponent />
     </section>
   );
 };
