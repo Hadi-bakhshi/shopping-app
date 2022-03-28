@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./homePage.css";
+import styles from './homePage.module.css'
 import img from "../assets/wio-8-mens-road-running-shoes-vKc7d1.jfif";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -8,15 +8,16 @@ import PhotoSlider from "../Components/Slider/PhotoSlider";
 import HomeCards from "../Components/HomeCards/HomeCards";
 import FooterComponent from "../Components/Footer/FooterComponent";
 
+
 const HomePage = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   return (
-    <section className="home-container">
-      <section className="wrappHome">
-        <div className="left">
+    <section className={styles.homecontainer}>
+      <section className={styles.wrappHome}>
+        <div className={styles.left}>
           <h2 data-aos="fade-right">
             Every Purchase Will Be Made With Pleasure
           </h2>
@@ -25,27 +26,27 @@ const HomePage = () => {
             browse through hundreds of collections
           </p>
           <Link to="/products">
-            <button data-aos="fade-up-left" className="btn-home">
+            <button data-aos="fade-up-left" className={styles.btnhome}>
               Check Out Produccts
             </button>
           </Link>
         </div>
-        <div className="right">
-          <div className="homeImage">
+        <div className={styles.right}>
+          <div className={styles.homeImage}>
             <img
               data-aos="fade-left"
-              className="sneaker-image"
+              className={styles.sneakerimage}
               src={img}
               alt="hi"
             />
           </div>
         </div>
       </section>
-      <section data-aos="zoom-in-up" className="slider-container">
+      <section data-aos="zoom-in-up" className={styles.slidercontainer}>
         <h2>New Collections</h2>
         <PhotoSlider />
       </section>
-      <section data-aos="zoom-in-down" className="cards-section">
+      <section data-aos="zoom-in-down" className={styles.cardssection}>
         <HomeCards/>
       </section>
       <FooterComponent />

@@ -1,4 +1,4 @@
-.cards-wrapper {
+.cardswrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -20,7 +20,7 @@
   font-size: 1rem;
   font-weight: 500;
 }
-.shipping:hover .shipping-img img {
+.shipping:hover .shippingimg img {
   opacity: 0.4;
 }
 .shipping:hover h3 {
@@ -67,7 +67,7 @@
   font-size: 1rem;
   font-weight: 500;
 }
-.support:hover .support-img img {
+.support:hover .supportimg img {
   opacity: 0.4;
 }
 .support:hover h3 {
@@ -93,7 +93,7 @@
   font-size: 1rem;
   font-weight: 500;
 }
-.moneyback:hover .moneyback-img img {
+.moneyback:hover .moneybackimg img {
   opacity: 0.4;
 }
 .moneyback:hover h3 {
@@ -105,23 +105,25 @@
 }
 
 @media screen and (max-width: 768px) {
-  .cards-wrapper {
+  .cardswrapper {
     flex-direction: column;
   }
   .shipping {
     width: 100%;
     height: auto;
     border-radius: 10px 10px 0px 0px;
+    margin-bottom: 20px;
   }
   .support {
     width: 100%;
     height: auto;
     border-radius: 10px 10px 0px 0px;
+    margin-bottom: 20px;
   }
   .moneyback {
     width: 100%;
     height: auto;
     border-radius: 10px 10px 0px 0px;
+    margin-bottom: 20px;
   }
 }
-  

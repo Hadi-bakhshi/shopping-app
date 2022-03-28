@@ -1,4 +1,4 @@
-.home-container {
+.homecontainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -34,12 +34,12 @@
   margin-bottom: 1rem;
 }
 
-.btn-home {
+.btnhome {
   margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   outline: none;
   border: none;
-  border-radius: 15px;
+  border-radius: 7px;
   background-color: #6d28d9;
   color: #ede9fe;
   cursor: pointer;
@@ -60,13 +60,13 @@
   width: 70%;
 }
 
-.sneaker-image {
+.sneakerimage {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.slider-container {
+.slidercontainer {
   border-radius: 5px;
   max-width: 1170px;
   width: 90vw;
@@ -75,18 +75,35 @@
   cursor: pointer;
   margin-bottom: 1rem;
 }
-.slider-container h2 {
+.slidercontainer h2 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   cursor: default;
 }
 
-.cards-section{
+.cardssection{
   max-width: 1170px;
   width: 90vw;
   text-align: center;
   height: 100%;
   cursor: pointer;
   margin-bottom: 1rem;
+}
+
+
+@media (max-width: 768px) {
+.wrappHome{
+  flex-direction: column-reverse;
+  margin-bottom: 2rem;
+}
+.left, .right {
+  width: 100%;
+}
+.left h2{
+  font-size: 1.5rem;
+}
+.left p{
+  width: 90%;
+}
 }
