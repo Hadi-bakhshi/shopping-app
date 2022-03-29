@@ -1,14 +1,14 @@
 This is a shopping app that I'm developing it by ReactJS.
 
 <h2>Libraries and Technologies :</h2>
-- React-router-dom
-- Context to send data and global states through the app
-- costume hooks
-- MUI
-- Formik to handle forms
-- Yup for validation
-- Swiper for photo slider
-- react-icons/ mui-icons
+- React-router-dom <br/>
+- Context to send data and global states through the app <br/>
+- costume hooks <br/>
+- MUI <br/>
+- Formik to handle forms <br/>
+- Yup for validation <br/>
+- Swiper for photo slider  <br/>
+- react-icons/ mui-icons  <br/>
 
 <h3>Back-end :</h3>
 - NodeJS
