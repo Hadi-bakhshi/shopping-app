@@ -1,0 +1,22 @@
+.profileContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.logoutBtn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+  border: 1px solid #dc2626;
+  border-radius: 7px;
+  background-color: #fef2f2;
+  color: #dc2626;
+  cursor: pointer;
+}
+.logoutBtn:hover {
+  background-color: #dc2626;
+  color: #fef2f2;
+}
