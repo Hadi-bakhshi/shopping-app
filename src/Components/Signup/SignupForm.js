@@ -67,6 +67,7 @@ const SignupForm = ({ history }) => {
       const { data } = await signupUser(userData);
       setAuth(data);
       setError(null);
+      toast.success("You have successfully signed up");
       history.push(redirect);
     } catch (error) {
       if (error.response && error.response.data.message)

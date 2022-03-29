@@ -40,6 +40,7 @@ const LoginForm = ({ history }) => {
       const { data } = await loginUser(values);
       setAuth(data);
       setError(null);
+      toast.success("You have successfully logged in");
       history.push(redirect);
     } catch (error) {
       if (error.response && error.response.data.message)
