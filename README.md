@@ -5,6 +5,9 @@ This is a shopping app that I'm developing it by ReactJS.
 - Context to send data and global states through the app <br/>
 - costume hooks <br/>
 - MUI <br/>
+- Axios to handle http requests <br/>
+- AOS for Home animations <br/>
+- react-hot-toast to handle messages <br/>
 - Formik to handle forms <br/>
 - Yup for validation <br/>
 - Swiper for photo slider  <br/>
