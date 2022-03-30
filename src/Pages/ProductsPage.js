@@ -59,7 +59,7 @@ const ProductsPage = () => {
                   </div>
                   <div className="addBtn-container">
                     <button
-                      className="btn primary a2"
+                      className="btn2 primary"
                       onClick={() => addToCartHandler(product)}
                     >
                       {checkInCart(cart, product) ? "In cart" : "Add to Cart"}
