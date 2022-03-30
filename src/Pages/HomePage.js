@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import styles from './homePage.module.css'
+import styles from "./homePage.module.css";
 import img from "../assets/wio-8-mens-road-running-shoes-vKc7d1.jfif";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import PhotoSlider from "../Components/Slider/PhotoSlider";
 import HomeCards from "../Components/HomeCards/HomeCards";
 import FooterComponent from "../Components/Footer/FooterComponent";
-
 
 const HomePage = () => {
   useEffect(() => {
@@ -43,11 +42,11 @@ const HomePage = () => {
         </div>
       </section>
       <section data-aos="zoom-in-up" className={styles.slidercontainer}>
-        <h2>New Collections</h2>
+        <h2>Popular Items</h2>
         <PhotoSlider />
       </section>
       <section data-aos="zoom-in-down" className={styles.cardssection}>
-        <HomeCards/>
+        <HomeCards />
       </section>
       <FooterComponent />
     </section>
