@@ -5,6 +5,19 @@
   flex-direction: column;
   margin: 0 auto;
 }
+.profileContainer div p {
+  color: #57534e;
+  font-weight: 500;
+}
+
+.welcomeMsg {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+.emailP {
+  font-size: 1rem;
+  margin: 10px 0;
+}
 
 .logoutBtn {
   margin-top: 1rem;

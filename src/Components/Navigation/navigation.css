@@ -25,16 +25,17 @@
 }
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
-  margin-left: 1rem;
-  font-size: 1.5rem!important;
-  color: rgb(151, 151, 150) !important; 
+  margin-left: 1rem !important;
+  font-size: 1.7rem!important;
+  font-weight: 600!important;
+  color: #444 !important; 
   cursor: pointer;
 }
 
 .nav-logo{
   margin-left: 1rem;
   font-size: 1.5rem;
-  color: rgb(151, 151, 150);
+  color: #fbbf24;
 }
 
 .navigationLinks {

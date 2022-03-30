@@ -22,6 +22,12 @@
   -webkit-align-items: center;
   align-items: center;
 }
+.swiper-button-prev{
+  color: #7e22ce;
+}
+.swiper-button-next{
+  color: #7e22ce;
+}
 
 .swiper-slide img {
   display: block;
