@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
 }
-.buyer-info h3{
-    margin-bottom: 10px;
+.buyer-info h3 {
+  margin-bottom: 10px;
 }
 .buyer-info div {
   display: flex;

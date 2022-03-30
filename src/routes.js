@@ -5,6 +5,8 @@ import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
 import ProfilePage from "./Pages/ProfilePage";
 import ProductsPage from "./Pages/ProductsPage";
+import NotFoundPage from "./Pages/NotFoundPage";
+
 
 const routes = [
   { path: "/profile", component: ProfilePage },
@@ -14,6 +16,7 @@ const routes = [
   { path: "/cart", component: CartPage },
   { path: "/products", component: ProductsPage },
   { path: "/", exact: true, component: HomePage },
+  {component:NotFoundPage}
 ];
 
 export default routes;

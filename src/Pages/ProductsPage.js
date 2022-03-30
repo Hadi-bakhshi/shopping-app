@@ -50,7 +50,11 @@ const ProductsPage = () => {
             return (
               <section className="product--section" key={product.id}>
                 <div className="productImage--container">
-                  <img className="productImg" src={product.image} alt={product.name} />
+                  <img
+                    className="productImg"
+                    src={product.image}
+                    alt={product.name}
+                  />
                 </div>
                 <div className="desc-btn">
                   <div className="productDescription">
@@ -59,7 +63,8 @@ const ProductsPage = () => {
                   </div>
                   <div className="addBtn-container">
                     <button
-                      className="btn2 primary"
+                      style={{ width: "90%" }}
+                      className="btn primary"
                       onClick={() => addToCartHandler(product)}
                     >
                       {checkInCart(cart, product) ? "In cart" : "Add to Cart"}
