@@ -1,11 +1,11 @@
-import HomePage from "./Pages/HomePage";
-import CartPage from "./Pages/CartPage";
-import Checkout from "./Pages/Checkout";
-import LoginPage from "./Pages/LoginPage";
-import SignupPage from "./Pages/SignupPage";
-import ProfilePage from "./Pages/ProfilePage";
-import ProductsPage from "./Pages/ProductsPage";
-import NotFoundPage from "./Pages/NotFoundPage";
+import HomePage from "./pages/HomePage";
+import CartPage from "./pages/CartPage";
+import Checkout from "./pages/Checkout";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import ProfilePage from "./pages/ProfilePage";
+import ProductsPage from "./pages/ProductsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 const routes = [
